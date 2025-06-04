@@ -1,5 +1,5 @@
 return {
-    "smoka7/hop.nvim",
+    "git@github.com:smoka7/hop.nvim.git",
     opts = {
         hint_position = 3
     },
