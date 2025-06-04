@@ -1,0 +1,1 @@
+1.默认路径为home/chou/.config/nvim
