@@ -1,5 +1,4 @@
 return {
-
     "git@github.com:Saghen/blink.cmp.git",
     version = "*",
     dependencies = {
@@ -29,6 +28,7 @@ return {
                 end
                 return {}
             end,
+
             keymap = {
                 preset = "super-tab"
             },
