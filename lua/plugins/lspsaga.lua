@@ -1,6 +1,8 @@
 return {
     "git@github.com:nvimdev/lspsaga.nvim.git",
-    cmd = "Lspsaga",
+    cmd
+
+ = "Lspsaga",
     opts = {
         finder = {
             keys = {

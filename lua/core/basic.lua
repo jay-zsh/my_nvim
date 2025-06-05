@@ -29,6 +29,17 @@ vim.opt.smartcase = true
 --查找不显示高亮
 vim.opt.hlsearch = false
 
+--关闭 Neovim 底部的模式提示信息
+vim.opt.showmode = false
+
 --将leader设置为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+--绑定默认寄存器和系统剪贴板
+vim.opt.clipboard = "unnamedplus"
+
+--实现类似<ctrl+a>数字自增的字母自增
+vim.opt.nrformats = "bin,hex,alpha"
+
+

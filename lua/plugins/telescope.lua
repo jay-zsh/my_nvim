@@ -9,7 +9,9 @@ return {
                 .. "cmake --install build --prefix build",
         },
     },
-    cmd = "Telescope",
+    cmd
+
+ = "Telescope",
     opts = {
         extensions = {
             fzf = {
