@@ -12,12 +12,22 @@ my personal nvim
         - --<jj> 绑定Esc vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 
     ### none-ls.lua
-        - keys = {
-        {
-            "<leader>lf",--空格+lf格式化
-            function()
-                vim.lsp.buf.format()
-            end,
-        }
-    },
-}
+        -     "<leader>lf",--空格+lf格式 vim.lsp.buf.format()
+    
+    ### lspsaga.lua
+    { "<leader>lr", ":Lspsaga rename<CR>" },                    -- 重命名符号
+    { "<leader>lc", ":Lspsaga code_action<CR>" },               -- 弹出代码操作（Code Action）菜单
+    { "<leader>ld", ":Lspsaga goto_definition<CR>" },           -- 跳转到定义
+    { "<leader>lh", ":Lspsaga hover_doc<CR>" },                 -- 显示悬停文档（Hover Documentation）
+    { "<leader>lR", ":Lspsaga finder<CR>" },                    -- 打开引用/定义/实现的查找器
+    { "<leader>ln", ":Lspsaga diagnostic_jump_next<CR>" },      -- 跳转到下一个诊断（错误/警告）
+    { "<leader>lp", ":Lspsaga diagnostic_jump_prev<CR>" },      -- 跳转到上一个诊断（错误/警告）
+
+
+## 插件常用命令行
+    ### nvim-treesitter.lua
+        - InspectTree
+        
+
+
+    
