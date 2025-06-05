@@ -1,7 +1,7 @@
 return {
     "git@github.com:nvim-telescope/telescope.nvim.git",
     dependencies = {
-        "nvim-lua/plenary.nvim",
+        "git@github.com:nvim-lua/plenary.nvim.git",
         {
             "git@github.com:nvim-telescope/telescope-fzf-native.nvim.git",
             build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && "
@@ -9,9 +9,7 @@ return {
                 .. "cmake --install build --prefix build",
         },
     },
-    cmd
-
- = "Telescope",
+    cmd = "Telescope",
     opts = {
         extensions = {
             fzf = {
@@ -22,7 +20,7 @@ return {
             },
         },
     },
-    config = function(_, opts)
+       config = function(_, opts)
         local telescope = require "telescope"
         telescope.setup(opts)
         telescope.load_extension("fzf")
