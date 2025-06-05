@@ -2,31 +2,27 @@
  >已在basic.lua中将设置为<leader> = "<spac>"
 ## 插件配置关系树
 ---
-
-c:\Users\p2046\AppData\Local\nvim
-├── README.md                  # 项目说明文档
-├── init.lua                   # 主入口文件
-├── lazy-lock.json             # 插件版本锁定文件
-├── lua\
-│   ├── core\                  # 核心配置
-│   │   ├── basic.lua          # 基础Vim设置
-│   │   ├── keymap.lua         # 快捷键映射
-│   │   └── lazy.lua           # 插件管理器配置
-│   └── plugins\               # 插件配置
-│       ├── blink.lua          # 自动补全插件
-│       ├── bufferline.lua     # 缓冲区标签栏
-│       ├── grug-far.lua       # 全局搜索替换
-│       ├── hop.lua            # 快速跳转
-│       ├── indent-blankline.lua # 缩进指南线
-│       ├── lspsaga.lua        # LSP增强UI
-│       ├── lualine.lua        # 状态栏
-│       ├── mason.lua          # LSP管理器
-│       ├── none-ls.lua       # 代码格式化
-│       ├── nvim-autopairs.lua # 自动配对
-│       ├── nvim-surround.lua  # 环绕编辑
-│       ├── nvim-tree.lua      # 文件树
-
----
+  - `README.md`                  # 项目说明文档
+  - `init.lua`                   # 主入口文件
+  - `lazy-lock.json`             # 插件版本锁定文件
+  - `lua/`
+    - `core/`                    # 核心配置
+      - `basic.lua`              # 基础Vim设置
+      - `keymap.lua`             # 快捷键映射
+      - `lazy.lua`               # 插件管理器配置
+    - `plugins/`                 # 插件配置
+      - `blink.lua`              # 自动补全插件
+      - `bufferline.lua`         # 缓冲区标签栏
+      - `grug-far.lua`           # 全局搜索替换
+      - `hop.lua`                # 快速跳转
+      - `indent-blankline.lua`   # 缩进指南线
+      - `lspsaga.lua`            # LSP增强UI
+      - `lualine.lua`            # 状态栏
+      - `mason.lua`              # LSP管理器
+      - `none-ls.lua`            # 代码格式化
+      - `nvim-autopairs.lua`     # 自动配对
+      - `nvim-surround.lua`      # 环绕编辑
+      - `nvim-tree.lua`          # 文件树---
 
 
 ## 快捷键映射说明
