@@ -1,7 +1,7 @@
 return {
-	"git@github.com:nvimtools/none-ls.nvim.git",
-	dependencies = { "git@github.com:nvim-lua/plenary.nvim.git" },
-	event = "VeryLazy",
+	"nvimtools/none-ls.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	event = "BufReadPost",
 	config = function()
 		local registry = require("mason-registry")
 

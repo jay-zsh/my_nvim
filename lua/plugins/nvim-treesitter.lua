@@ -1,7 +1,8 @@
 return {
-    "git@github.com:nvim-treesitter/nvim-treesitter.git",
+    "nvim-treesitter/nvim-treesitter",
     main = "nvim-treesitter.configs",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = {"BufReadPost","BufNewFile"},
     build = ":TSUpdate",
     opts = {
         ensure_installed = {

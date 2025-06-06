@@ -1,7 +1,9 @@
 return {
-    "git@github.com:MagicDuck/grug-far.nvim.git",
+    "MagicDuck/grug-far.nvim",
     cmd = "GrugFar",
-    opts = {},
+    opts = {
+        open_in_place = true  -- Open the file in place instead of creating a new buffer
+    },
     keys = {
         { "<leader>fr", ":GrugFar<CR>", desc = "Find and Replace" }
     },

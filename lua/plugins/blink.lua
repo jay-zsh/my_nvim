@@ -1,8 +1,8 @@
 return {
-    "git@github.com:Saghen/blink.cmp.git",
+    "Saghen/blink.cmp",
     version = "*",
     dependencies = {
-        "git@github.com:rafamadriz/friendly-snippets.git",
+        "rafamadriz/friendly-snippets",
     },
     event = "VeryLazy",
     opts = {

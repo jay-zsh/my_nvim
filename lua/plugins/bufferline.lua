@@ -1,7 +1,8 @@
-return {
-    "git@github.com:akinsho/bufferline.nvim.git",
+return{
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     dependencies = {
-        "git@github.com:nvim-tree/nvim-web-devicons.git",
+        "nvim-tree/nvim-web-devicons",
     },
 
     opts = {
@@ -33,5 +34,9 @@ return {
         { "<leader>bc", ":BufferLineCloseOthers<CR>", silent = true }, -- 空格+c 关闭其他标签
         { "<leader>bd", ":bdelete<CR>",               silent = true }, -- 空格+d 删除当前缓冲区
     },
-    lazy = false
 }
+
+
+
+
+

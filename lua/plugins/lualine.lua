@@ -1,7 +1,7 @@
 return {
-    "git@github.com:nvim-lualine/lualine.nvim.git",
+    "nvim-lualine/lualine.nvim",
     dependencies = {
-        "git@github.com:nvim-tree/nvim-web-devicons.git",
+        "nvim-tree/nvim-web-devicons",
     },
     event = "VeryLazy",
     opts = {

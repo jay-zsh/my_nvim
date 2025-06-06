@@ -1,6 +1,6 @@
 return {
-    "git@github.com:lukas-reineke/indent-blankline.nvim.git",
-    event = "VeryLazy",
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPost",
     main = "ibl",
     opts = {},
 }

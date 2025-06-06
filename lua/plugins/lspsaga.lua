@@ -1,8 +1,6 @@
 return {
     "git@github.com:nvimdev/lspsaga.nvim.git",
-    cmd
-
- = "Lspsaga",
+    cmd = "Lspsaga",
     opts = {
         finder = {
             keys = {
@@ -20,4 +18,5 @@ return {
         { "<leader>lp", ":Lspsaga diagnostic_jump_prev<CR>" },
     }
 }
+
 

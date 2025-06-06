@@ -1,5 +1,6 @@
 return {
-    "git@github.com:smoka7/hop.nvim.git",
+    "smoka7/hop.nvim",
+    event = "InsertEnter",
     opts = {
         hint_position = 3
     },

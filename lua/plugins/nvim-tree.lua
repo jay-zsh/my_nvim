@@ -1,6 +1,7 @@
 return {
-    "git@github.com:nvim-tree/nvim-tree.lua.git",
-    dependencies = { "git@github.com:nvim-tree/nvim-web-devicons.git" },
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" }, -- 可选命令触发
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
         actions = {
             open_file = {

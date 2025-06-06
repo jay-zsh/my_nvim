@@ -1,5 +1,5 @@
 return {
-    "git@github.com:windwp/nvim-autopairs.git",
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {}
 }

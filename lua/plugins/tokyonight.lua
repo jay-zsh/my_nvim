@@ -1,5 +1,6 @@
 return {
-	"git@github.com:folke/tokyonight.nvim.git",
+	"folke/tokyonight.nvim",
+    lazy = false,
 	opts = {
 		style = "moon",
 	},
