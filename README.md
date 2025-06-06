@@ -2,68 +2,71 @@
  >已在basic.lua中将设置为<leader> = "<spac>"
 ## 插件配置关系树
 ---
-  - `README.md`                  # 项目说明文档
-  - `init.lua`                   # 主入口文件
-  - `lazy-lock.json`             # 插件版本锁定文件
-  - `lua/`
-    - `core/`                    # 核心配置
-      - `basic.lua`              # 基础Vim设置
-      - `keymap.lua`             # 快捷键映射
-      - `lazy.lua`               # 插件管理器配置
-    - `plugins/`                 # 插件配置
-      - `blink.lua`              # 自动补全插件
-      - `bufferline.lua`         # 缓冲区标签栏
-      - `grug-far.lua`           # 全局搜索替换
-      - `hop.lua`                # 快速跳转
-      - `indent-blankline.lua`   # 缩进指南线
-      - `lspsaga.lua`            # LSP增强UI
-      - `lualine.lua`            # 状态栏
-      - `mason.lua`              # LSP管理器
-      - `none-ls.lua`            # 代码格式化
-      - `nvim-autopairs.lua`     # 自动配对
-      - `nvim-surround.lua`      # 环绕编辑
-      - `nvim-tree.lua`          # 文件树---
+├── README.md
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   ├── core
+│   │   ├── basic.lua
+│   │   ├── keymap.lua
+│   │   └── lazy.lua
+│   └── plugins
+│       ├── blink.lua
+│       ├── bufferline.lua
+│       ├── grug-far.lua
+│       ├── hop.lua
+│       ├── indent-blankline.lua
+│       ├── lspsaga.lua
+│       ├── lualine.lua
+│       ├── markdown.json
+│       ├── mason.lua
+│       ├── none-ls.lua
+│       ├── nvim-autopairs.lua
+│       ├── nvim-surround.lua
+│       ├── nvim-tree.lua
+│       ├── nvim-treesitter.lua
+│       ├── telescope.lua
+│       ├── test.cpp
+│       ├── test.py
+│       └── tokyonight.lua
+└── snippets
+    └── markdown.json
 
-
-## 快捷键映射说明
-
-### buffer切换 <bufferline.lua>
-- 空格+bh 向左切换标签
-- 空格+bl 向右切换标签
-- 空格+bp 选择关闭标签
-- 空格+bc 关闭其他标签
-- 空格+bd 删除当前缓冲区
-
-### keymap按键映射 <keymap.lua>
-
-- Ctrl-z 映射 u 撤销ctrl z
-- jj  映射 esc 
-    
----
-
-###  <lspsaga.lua>
-- <leader>lf - 格式化当前文件 (LSP格式化)
-- <leader>lr - 重命名符号 (Lspsaga rename)
-- <leader>lc - 代码操作 (Lspsaga code_action)
-- <leader>ld - 跳转到定义 (Lspsaga definition)
-- <leader>lh - 查看文档 (Lspsaga hover_doc)
-- <leader>lR - 查找引用 (Lspsaga finder)
-- <leader>ln - 跳转到下一个诊断问题 (Lspsaga diagnostic_jump_next)
-- <leader>lp - 跳转到上一个诊断问题 (Lspsaga diagnostic_jump_prev)
-
----
-### <none-ls.lua>
-- <leader>lf -lsp格式化当前文件
-    
----
-### <nvim-tree.lua>
-- <leader>uf - 打开文件树
-- jk 选择文件 enter进入
-- o - 打开文件或展开目录
-- a - 创建新文件
-- d - 删除文件
-- r - 重命名文件
-
----
-### <Telescope.lua> 查找器
-    
+### 核心插件及快捷键
+- 1. bufferline.nvim - 缓冲区标签管理
+   
+   - <leader>bh - 向左切换标签
+   - <leader>bl - 向右切换标签
+   - <leader>bp - 选择关闭标签
+   - <leader>bc - 关闭其他标签
+   - <leader>bd - 删除当前缓冲区
+- 2. telescope.nvim - 模糊查找
+   
+   - <leader>lg - 全局内容搜索(live_grep)
+- 3. nvim-tree.lua - 文件树
+   
+   - <leader>uf - 切换文件树
+- 4. lspsaga.nvim - LSP增强
+   
+   - <leader>lr - 重命名符号
+   - <leader>lc - 代码操作菜单
+   - <leader>ld - 跳转定义
+   - <leader>lh - 悬浮文档
+- 5. none-ls.nvim - 代码格式化
+   
+   - <leader>lf - 格式化当前文件
+-6. hop.nvim - 快速跳转
+   
+   - <leader>hp - 单词跳转
+- 7. grug-far.nvim - 全局替换
+   
+   - <leader>fr - 查找替换
+- 8. 基础快捷键 (keymap.lua)
+   
+   - Ctrl+z - 撤销
+   - jj (插入模式) - 退出到普通模式
+### 其他重要插件功能
+- nvim-treesitter : 提供语法高亮和代码分析
+- blink.cmp : 代码自动补全
+- mason.nvim : LSP服务器管理
+- lualine.nvim : 状态栏显示
