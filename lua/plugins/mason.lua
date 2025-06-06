@@ -1,15 +1,11 @@
 return {
     "mason-org/mason.nvim",
-    event = "BufReadPre",  -- 改为文件读取前触发
+    -- event = "VeryLazy",  
     dependencies = {
         "neovim/nvim-lspconfig",
         "mason-org/mason-lspconfig.nvim",
     },
-    opts = {
-        ui = {
-            check_outdated_packages_on_open = false,  -- 禁用打开时检查更新
-        }
-    },
+    opts = {},
     config = function(_, opts)
         require("mason").setup(opts)
         local registry = require("mason-registry")
@@ -65,8 +61,7 @@ return {
                     setup(server, config)
                 end
             end
-        
-            -- 移除非必要的全局LSP启动命令
+            vim.cmd("LspStart") 
             vim.diagnostic.config({
                 virtual_text = true,
                 update_in_insert = true,
