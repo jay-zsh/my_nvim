@@ -1,7 +1,7 @@
 return {
 	"mason-org/mason.nvim",
-	-- event = { "BufReadPre", "BufNewFile" }, -- 打开文件时再加载 Mason + LSP
-    event = "InsertEnter", -- 第一次进入插入模式时才加载 mason
+	event = { "BufReadPre", "BufNewFile" }, -- 打开文件时再加载 Mason + LSP
+    -- event = "VeryLazy",
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		"mason-org/mason-lspconfig.nvim",
@@ -50,6 +50,7 @@ return {
 			setup(server, config)
 		end
 
+        -- vim.cmd("LspStart")
 		vim.diagnostic.config({
 			virtual_text = true,
 			update_in_insert = true,
