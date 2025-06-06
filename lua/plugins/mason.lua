@@ -1,12 +1,11 @@
 return {
-	"mason-org/mason.nvim",
-	-- event = { "BufReadPre", "BufNewFile" }, -- 打开文件时再加载 Mason + LSP
-    event = "VeryLazy",
+	"git@github.com:mason-org/mason.nvim.git",
+	event = "VeryLazy", --懒加载后加载
 	dependencies = {
-		"neovim/nvim-lspconfig",
-		"mason-org/mason-lspconfig.nvim",
-
+		"git@github.com:neovim/nvim-lspconfig.git",
+		"git@github.com:mason-org/mason-lspconfig.nvim.git",
 	},
+	lazy = false,
 	opts = {},
 	config = function(_, opts)
 		require("mason").setup(opts)
@@ -19,7 +18,7 @@ return {
 			end
 
 			local lsp = require("mason-lspconfig").get_mappings().package_to_lspconfig[name]
-			config.capabilities = require("blink.cmp").get_lsp_capabilities()
+			config.capabilities = require("blink.cmp").get_lsp_capabilities() -- 新添加的内容lsp限制配置
 			config.on_attach = function(client)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentRangeFormattingProvider = false
@@ -50,10 +49,10 @@ return {
 			setup(server, config)
 		end
 
-        vim.cmd("LspStart")
+		vim.cmd("LspStart") --手动启动lsp
 		vim.diagnostic.config({
 			virtual_text = true,
-			update_in_insert = true,
+			update_in_insert = true, --插入模式显示诊断信息
 		})
 	end,
 }
