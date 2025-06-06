@@ -1,73 +1,59 @@
 return {
-    "mason-org/mason.nvim",
-    -- event = "VeryLazy",  
-    dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason-org/mason-lspconfig.nvim",
-    },
-    opts = {},
-    config = function(_, opts)
-        require("mason").setup(opts)
-        local registry = require("mason-registry")
-        
-        -- 添加延迟确保LSP完全初始化
-        vim.defer_fn(function()
-            local function setup(name, config)
-                if not name or name == "" then
-                    vim.notify("Invalid LSP server name: " .. tostring(name), vim.log.levels.ERROR)
-                    return
-                end
+	"git@github.com:mason-org/mason.nvim.git",
+	event = "VeryLazy", --懒加载后加载
+	dependencies = {
+		"git@github.com:neovim/nvim-lspconfig.git",
+		"git@github.com:mason-org/mason-lspconfig.nvim.git",
+	},
+	lazy = false,
+	opts = {},
+	config = function(_, opts)
+		require("mason").setup(opts)
+		local registry = require("mason-registry")
 
-                local success, package = pcall(registry.get_package, name)
-                if success and not package:is_installed() then
-                    package:install()
-                end
+		local function setup(name, config)
+			local success, package = pcall(registry.get_package, name)
+			if success and not package:is_installed() then
+				package:install()
+			end
 
-                local lsp = require("mason-lspconfig").get_mappings().package_to_lspconfig[name]
-                if not lsp then
-                    vim.notify("No LSP config found for: " .. name, vim.log.levels.WARN)
-                    return
-                end
+			local lsp = require("mason-lspconfig").get_mappings().package_to_lspconfig[name]
+			config.capabilities = require("blink.cmp").get_lsp_capabilities() -- 新添加的内容lsp限制配置
+			config.on_attach = function(client)
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
+			end
+			require("lspconfig")[lsp].setup(config)
+		end
 
-                config.capabilities = require("blink.cmp").get_lsp_capabilities()
-                config.on_attach = function(client)
-                    client.server_capabilities.documentFormattingProvider = false
-                    client.server_capabilities.documentRangeFormattingProvider = false
-                end
-                require("lspconfig")[lsp].setup(config)
-            end
+		local servers = {
+			["lua-language-server"] = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			},
+			pyright = {},
+			["jdtls"] = {},
+			["clangd"] = {},
+			["html-lsp"] = {},
+			["css-lsp"] = {},
+			["typescript-language-server"] = {},
+			["emmet-ls"] = {},
+		}
 
-            local servers = {
-                ["lua-language-server"] = {
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                        },
-                    },
-                },
-                pyright = {},
-                ["jdtls"] = {},
-                ["clangd"] = {},
-                ["html-lsp"] = {},
-                ["css-lsp"] = {},
-                ["typescript-language-server"] = {},
-                ["emmet-ls"] = {},
-            }
+		for server, config in pairs(servers) do
+			setup(server, config)
+		end
 
-            for server, config in pairs(servers) do
-                if server and server ~= "" then
-                    setup(server, config)
-                end
-            end
-            vim.cmd("LspStart") 
-            vim.diagnostic.config({
-                virtual_text = true,
-                update_in_insert = true,
-                severity_sort = true
-            })
-        end, 1000)  -- 1秒延迟
-    end
-} 
+		vim.cmd("LspStart") --手动启动lsp
+		vim.diagnostic.config({
+			virtual_text = true,
+			update_in_insert = true, --插入模式显示诊断信息
+		})
+	end,
+}
 
