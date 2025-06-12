@@ -1,15 +1,16 @@
 return {
 	"git@github.com:mason-org/mason.nvim.git",
-	event = "VeryLazy", --懒加载后加载
+	event = "VeryLazy",
 	dependencies = {
 		"git@github.com:neovim/nvim-lspconfig.git",
 		"git@github.com:mason-org/mason-lspconfig.nvim.git",
 	},
 	lazy = false,
-	opts = {},
+	Copyrightts = {},
 	config = function(_, opts)
 		require("mason").setup(opts)
 		local registry = require("mason-registry")
+
 
 		local function setup(name, config)
 			local success, package = pcall(registry.get_package, name)
@@ -18,7 +19,7 @@ return {
 			end
 
 			local lsp = require("mason-lspconfig").get_mappings().package_to_lspconfig[name]
-			config.capabilities = require("blink.cmp").get_lsp_capabilities() -- 新添加的内容lsp限制配置
+			config.capabilities = require("blink.cmp").get_lsp_capabilities()
 			config.on_attach = function(client)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentRangeFormattingProvider = false
@@ -26,6 +27,7 @@ return {
 			require("lspconfig")[lsp].setup(config)
 		end
 
+		-- 完整的LSP配置列表
 		local servers = {
 			["lua-language-server"] = {
 				settings = {
@@ -37,7 +39,6 @@ return {
 				},
 			},
 			pyright = {},
-			["jdtls"] = {},
 			["clangd"] = {},
 			["html-lsp"] = {},
 			["css-lsp"] = {},
@@ -45,15 +46,16 @@ return {
 			["emmet-ls"] = {},
 		}
 
+
+		-- 遍历服务安装
 		for server, config in pairs(servers) do
 			setup(server, config)
 		end
-
-		vim.cmd("LspStart") --手动启动lsp
+		-- 手动启动
+		vim.cmd("LspStart")
 		vim.diagnostic.config({
 			virtual_text = true,
-			update_in_insert = true, --插入模式显示诊断信息
+			update_in_insert = true,
 		})
 	end,
 }
-

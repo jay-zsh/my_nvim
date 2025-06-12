@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap", -- 主调试框架
+    event = "VeryLazy";
     dependencies = {
       "rcarriga/nvim-dap-ui",             -- UI 面板：变量、堆栈、断点等
       "theHamsta/nvim-dap-virtual-text",  -- 虚拟文本：变量值直接显示在代码旁边
@@ -27,12 +28,6 @@ return {
       -- 设置事件监听：启动调试时自动打开 UI，退出时关闭
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
       end
 
       -- 设置 Python 调试器路径（通过 mason 安装的 debugpy）
@@ -70,8 +65,9 @@ return {
       }
       dap.configurations.c = dap.configurations.cpp -- C 语言复用 C++ 配置
 
-      -- 常用调试快捷键
-      vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = "开始/继续调试" })
+-- 常用调试快捷键
+vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = "开始/继续调试" })
+vim.keymap.set('n', '<Esc>', function() dapui.close() end, { desc = "关闭调试 UI" })
       vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = "跳过（step over）" })
       vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = "进入函数（step into）" })
       vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = "跳出函数（step out）" })
@@ -82,4 +78,3 @@ return {
     end,
   },
 }
-
