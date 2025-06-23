@@ -14,7 +14,6 @@
 │       ├── *.lua         # 各插件独立配置
 │       └── *.json        # 插件相关配置
 └── snippets/             # 代码片段
-    └── markdown.json     # Markdown代码片段
 ```
 
 ## 🚀 快速开始
@@ -22,7 +21,7 @@
 1. 确保已安装Neovim 0.9+
 2. 克隆本配置到`~/.config/nvim`
 3. 首次启动会自动安装插件和LSP服务
-3. 已在basic.lua中将设置为<leader> = "<spac>",需要知悉
+3. 已在basic.lua中将设置为<leader> = "<space>",需要知悉
 ## ⌨️ 完整快捷键参考
 
 ### 基础操作
@@ -49,6 +48,7 @@
 | `<leader>bc` | 关闭其他标签 |
 | `<leader>bd` | 删除当前缓冲区 |
 
+
 ### LSP相关
 | 快捷键 | 功能 |
 |--------|------|
@@ -57,6 +57,7 @@
 | `<leader>ld` | 跳转定义 |
 | `<leader>lh` | 悬浮文档 |
 | `<leader>lf` | 格式化当前文件 (none-ls) |
+
 
 ### 其他工具
 | 快捷键 | 功能 |
@@ -174,3 +175,11 @@ A: 从 mason.lua 配置看，Java 支持(jdtls)默认已包含，但可能因以
 
 Q: 如何修改主题？
 A: 编辑`tokyonight.lua`或替换为其他主题插件
+
+
+
+
+
+
+
+
