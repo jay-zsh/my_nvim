@@ -42,4 +42,5 @@ vim.opt.clipboard = "unnamedplus"
 --实现类似<ctrl+a>数字自增的字母自增
 vim.opt.nrformats = "bin,hex,alpha"
 
-
+-- 时间间隔设置为 300ms 内必须按完两个 
+vim.opt.timeoutlen = 300
