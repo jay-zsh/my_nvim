@@ -1,8 +1,8 @@
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false, -- 非懒加载，确保随时可用
+  lazy = true, -- 非懒加载，确保随时可用
   dependencies = {
-    "nvim-treesitter/nvim-treesitter", -- 语法解析增强
+    { "nvim-treesitter/nvim-treesitter",lazy = false }, -- 语法解析增强
     "nvim-tree/nvim-web-devicons",     -- 文件图标支持
     "hrsh7th/nvim-cmp",                -- 补全支持（可选，用于代码块补全）
   },
