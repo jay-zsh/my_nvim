@@ -1,0 +1,151 @@
+{
+  "Class Template": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}:",
+      "    def __init__(self, ${2:args}):",
+      "        self.${3:attribute} = ${4:value}",
+      "        ${0}"
+    ],
+    "description": "Insert a class template"
+  },
+  "Function Template": {
+    "prefix": "def",
+    "body": [
+      "def ${1:function_name}(${2:args}):",
+      "    ${3:\"\"\"${4:docstring}\"\"\"}",
+      "    ${0}"
+    ],
+    "description": "Insert a function template"
+  },
+  "Main Entry": {
+    "prefix": "main",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    ${1:main()}"
+    ],
+    "description": "Insert main entry point"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:iterable}:",
+      "    ${3:print($1)}"
+    ],
+    "description": "Insert a for loop"
+  },
+  "Try-Except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    ${1:code}",
+      "except ${2:Exception} as ${3:e}:",
+      "    ${4:handle_error}",
+      "${0}"
+    ],
+    "description": "Insert try-except block"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition}:",
+      "    ${2:loop_body}",
+      "${0}"
+    ],
+    "description": "Insert while loop"
+  },
+  "List Comprehension": {
+    "prefix": "listcomp",
+    "body": [
+      "[${1:expression} for ${2:item} in ${3:iterable} if ${4:condition}]"
+    ],
+    "description": "Insert list comprehension"
+  },
+  "With Statement": {
+    "prefix": "with",
+    "body": [
+      "with ${1:resource} as ${2:alias}:",
+      "    ${3:code}",
+      "${0}"
+    ],
+    "description": "Insert context manager"
+  },
+  "Decorator": {
+    "prefix": "deco",
+    "body": [
+      "def ${1:decorator_name}(${2:func}):",
+      "    def wrapper(${3:*args}, ${4:**kwargs}):",
+      "        ${5:pre_logic}",
+      "        result = ${2}(${3}, ${4})",
+      "        ${6:post_logic}",
+      "        return result",
+      "    return wrapper",
+      "${0}"
+    ],
+    "description": "Insert function decorator"
+  },
+  "Async Function": {
+    "prefix": "async",
+    "body": [
+      "async def ${1:function_name}(${2:args}):",
+      "    ${3:\"\"\"${4:docstring}\"\"\"}",
+      "    ${0}"
+    ],
+    "description": "Insert async function"
+  },
+  "Property Decorator": {
+    "prefix": "property",
+    "body": [
+      "@property",
+      "def ${1:property_name}(self):",
+      "    return self._${1}",
+      "",
+      "@${1}.setter",
+      "def ${1}(self, value):",
+      "    self._${1} = value",
+      "${0}"
+    ],
+    "description": "Insert property with setter"
+  },
+  "Pytest Test Case": {
+    "prefix": "test",
+    "body": [
+      "def test_${1:function_name}():",
+      "    ${2:# Arrange}",
+      "    ${3:# Act}",
+      "    ${4:# Assert}",
+      "    assert ${5:condition}",
+      "${0}"
+    ],
+    "description": "Insert pytest test case"
+  },
+  "Enum Class": {
+    "prefix": "enum",
+    "body": [
+      "from enum import Enum",
+      "",
+      "class ${1:EnumName}(Enum):",
+      "    ${2:ITEM1} = ${3:value1}",
+      "    ${4:ITEM2} = ${5:value2}",
+      "${0}"
+    ],
+    "description": "Insert enum class"
+  },
+  "Logging Setup": {
+    "prefix": "logging",
+    "body": [
+      "import logging",
+      "",
+      "logging.basicConfig(",
+      "    level=logging.${1|DEBUG,INFO,WARNING,ERROR,CRITICAL|},",
+      "    format=\"%(asctime)s - %(name)s - %(levelname)s - %(message)s\",",
+      "    handlers=[",
+      "        logging.FileHandler(\"${2:debug.log}\"),",
+      "        logging.StreamHandler()",
+      "    ]",
+      ")",
+      "${0}"
+    ],
+    "description": "Configure logging"
+  }
+}
