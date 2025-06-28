@@ -119,6 +119,12 @@
 - **hop.nvim**: 快速跳转到可见文本
 - **nvim-tree.lua**: 文件资源管理器
 
+### 其他工具
+- **grug-far.nvim**: 项目范围内的查找替换工具
+- **markview.nvim**: Markdown实时预览，支持代码高亮、LaTeX公式和目录生成
+- **nvim-surround**: 快速操作包围符号（如引号、括号）
+- **toggleterm.nvim**: 集成终端管理，支持水平/垂直分割
+
 ## ⚙️ 详细配置说明
 
 ### 核心配置 (lua/core/)
@@ -175,11 +181,3 @@ A: 从 mason.lua 配置看，Java 支持(jdtls)默认已包含，但可能因以
 
 Q: 如何修改主题？
 A: 编辑`tokyonight.lua`或替换为其他主题插件
-
-
-
-
-
-
-
-
