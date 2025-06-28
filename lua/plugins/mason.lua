@@ -62,6 +62,7 @@ return {
           root_dir = require("jdtls.setup").find_root({ ".git", "pom.xml", "build.gradle" }),
           capabilities = require("blink.cmp").get_lsp_capabilities(),
           on_attach = function(client)
+            --禁用lsp的格式化避免专用格式化冲突
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
           end,
